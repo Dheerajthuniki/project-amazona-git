@@ -5,5 +5,8 @@ WORKDIR /app/frontend
 RUN  npm install -g concurrently && npm install 
 WORKDIR /app/backend
 RUN  npm install -g concurrently && npm install
-WORKDIR /app/frontend
-CMD ["npm","start"]
+WORKDIR /app
+CMD ["npx", "concurrently", "npm start --prefix frontend", "npm start --prefix backend"]
+
+
+
